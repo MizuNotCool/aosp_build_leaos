@@ -57,7 +57,7 @@ START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 ORIGIN_FOLDER="$(dirname "$(readlink -f -- "$0")")"
-export OUT_DIR=/home/iceows/build/A13
+export OUT_DIR=/root/aosp/itzkaguya
 
 repo init -u https://android.googlesource.com/platform/manifest -b android13-gsi
 
@@ -111,12 +111,12 @@ build_device() {
 
 build_treble() {
     case "${1}" in
-        ("64BGS") TARGET=treble_arm64_bgS;;  
-        ("64BGN") TARGET=treble_arm64_bgN;;
-        ("64BGZ") TARGET=treble_arm64_bgZ;;
-        ("64BVS") TARGET=treble_arm64_bvS;;
-        ("64BVN") TARGET=treble_arm64_bvN;;
-        ("64BVZ") TARGET=treble_arm64_bvZ;;
+        ("64BGS") TARGET=treble_a64_bgS;;  
+        ("64BGN") TARGET=treble_a64_bgN;;
+        ("64BGZ") TARGET=treble_a64_bgZ;;
+        ("64BVS") TARGET=treble_a64_bvS;;
+        ("64BVN") TARGET=treble_a64_bvN;;
+        ("64BVZ") TARGET=treble_a64_bvZ;;
         (*) echo "Invalid target - exiting"; exit 1;;
     esac
     lunch ${TARGET}-userdebug
